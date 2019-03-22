@@ -75,7 +75,6 @@ attributes:
                                                                                                                                          
            ]
            
-           
 - name: auditor_role_users
   description: 'List of authorized users with the auditor role.',
   type: array
