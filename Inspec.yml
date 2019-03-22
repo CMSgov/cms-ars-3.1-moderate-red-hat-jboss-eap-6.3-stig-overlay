@@ -1,0 +1,131 @@
+name: NGINX Based on Apache 2.2 Server for UNIX Security Technical Implementation Guide
+title: NGINX Based on Apache 2.2 Server for UNIX Security Technical Implementation Guide
+maintainer: The CMS InSpec Dev Teams
+copyright: (c) 2018 The MITRE Corporation
+copyright_email: inspec@mitre.org
+license: Apache-2.0
+summary: CMS ARS 3.1 overlay for NGINX based on Apache 2.2 Server for UNIX DISA STIG.
+version: 0.1.0
+
+depends:
+- name: nginx-baseline
+  git: https://github.com/mitre/nginx-baseline
+  branch: master
+
+attributes:
+- name: nginx_conf_file	
+  description: Path for the nginx configuration file
+  type: string
+  default: '/etc/nginx/nginx.conf'
+
+- name: connection
+  description: 'Minimum Web vendor-supported version.'
+  type: string
+  default: ''
+  
+- name: auditor_role_users
+  description: 'List of authorized users with the auditor role.'
+  type: array
+  default: %w[
+            user-auditor
+            ]
+           
+- name: administrator_role_users
+  description: 'List of authorized users with the administrator role.'
+  type: array
+  default: %w[
+            user-admin
+            ]
+           
+- name: superuser_role_users
+  description: 'List of authorized users with the SuperUser role.'
+  default: %w[
+            user-superuser 
+            user-$local
+            ]
+              
+- name: auditor_group_users
+  description: 'List of  authorized auditor users.'
+  type: array
+  default: %w[user-auditor]
+           
+- name: wildfly_group
+  description: 'group owner of files/directories'
+  type: string
+  default: 'wildfly'
+           
+- name: wildly_owner
+  description: 'user owner of files/directories'
+  type: string
+  default: 'wildfly'
+  
+- name: approved_applications
+  description: 'List of  authorized applications.'
+  default: %w[sample.war]
+
+- name: auditor_group_users
+  description: 'List of  authorized nginx modules.'
+  type: array
+  default: %w[                                                                                                                           
+            jboss.management.http.port=9990                                                                                              
+            jboss.management.https.port=9993                                                                                             
+            jboss.http.port=8080                                                                                                         
+            jboss.https.port=8443                                                                                                        
+            jboss.ajp.port=8009                                                                                                          
+                                                                                                                                         
+           ]
+           
+           
+- name: auditor_role_users
+  description: 'List of authorized users with the auditor role.',
+  type: array
+  default: [
+            "user-auditor"
+           ]
+
+- name: administrator_role_users
+  description: 'List of authorized users with the administrator role.'
+  type: array
+  default: [
+            "user-admin"
+           ]
+
+- name: superuser_role_users
+  description: 'List of authorized users with the SuperUser role.'
+  type: array
+  default: [
+            "user-$local",
+            "user-superuser"
+           ]
+
+-name: deployer_role_users
+  description: 'List of authorized users with the deployer role.'
+  type: array
+  default: [
+            "user-deployer"
+           ]
+           
+-name: maintainer_role_users
+  description: 'List of authorized users with the maintainer role.'
+  type: array
+  default: ["user-maintainer"]
+
+-name: monitor_role_users
+  description: 'List of authorized users with the monitor role.'
+  type: array
+  default: ["user-monitor"]
+  
+-name: operator_role_users
+  description: 'List of authorized users with the operator role.'
+  type: array
+  default: ["user-operator"]
+
+-name: ldap
+  description: 'Minimum Web vendor-supported version.'
+  type: string
+  default: ''
+
+-name: high_availability
+  description: 'Minimum Web vendor-supported version.'
+  type: string
+  default: ''
