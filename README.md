@@ -11,6 +11,7 @@ The latest versions and installation options are available at the [InSpec](http:
 The following attributes must be configured in an attributes file for the profile to run correctly. More information about InSpec attributes can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
 
 ```
+TODO
 # Base URL of the RSA Archer application
 url: 'https://urltoarcherapp.org/'
 
@@ -76,10 +77,7 @@ To report a bug or feature request, please open an [issue](https://github.cms.go
 * Danny Haynes
 
 ## Special Thanks
-* Rony Xavier
-
-## Additional References
-- [RSA Archer 6 API Guide](https://community.rsa.com/docs/DOC-41939).
+* Alicia Sturtevant
 
 ## License
 * This project is licensed under the terms of the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
