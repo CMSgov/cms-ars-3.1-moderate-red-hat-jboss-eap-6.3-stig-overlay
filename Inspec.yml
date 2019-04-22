@@ -14,7 +14,7 @@ depends:
 
 attributes:
 - name: connection
-  description: 'Minimum Web vendor-supported version.'
+  description: 'Command used to connect to the wildfly instance'
   type: string
   default: ''
   
@@ -65,7 +65,7 @@ attributes:
             ]
 
 - name: auditor_group_users
-  description: 'List of  authorized nginx modules.'
+  description: 'List of authorized users.'
   type: array
   default: %w[                                                                                                                           
             jboss.management.http.port=9990                                                                                              
@@ -126,11 +126,11 @@ attributes:
            ]
 
 -name: ldap
-  description: 'Minimum Web vendor-supported version.'
+  description: 'Set to true if ldap is being used.'
   type: string
   default: ''
 
 -name: high_availability
-  description: 'Minimum Web vendor-supported version.'
+  description: 'Set to true if widlfy is being used as a high-availability cluster.'
   type: string
   default: ''
