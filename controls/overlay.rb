@@ -27,19 +27,54 @@ include_controls 'cis-docker-ce-profile' do
          application server operation capabilities.' 
   end
 
-  control 'V-62229' do
-    
-  end
+  control 'V-62235' do
+    impact 'none'
+    desc 'caveat', 'Not applicable for this CMS ARS 3.1 overlay, since the related security control 
+         is not included in CMS ARS 3.1'
+  end	  
 
   control 'V-62259' do
-    #tag "nist": ['CM-5', 'Rev_4']
+    tag "nist": ['CM-5', 'Rev_4']
   end
 
+  control 'V-62279' do
+    desc 'Multifactor authentication creates a layered defense and makes it more
+    difficult for an unauthorized person to access the application server.  If one
+    factor is compromised or broken, the attacker still has at least one more
+    barrier to breach before successfully breaking into the target.  Unlike a
+    simple username/password scenario where the attacker could gain access by
+    knowing both the username and password without the user knowing his account was
+    compromised, multifactor authentication adds the requirement that the attacker
+    must have something from the user, such as a token, or to biometrically be the
+    user.
+      Multifactor authentication is defined as: using two or more factors to
+      achieve authentication.
+      Factors include:
+      (i) something a user knows (e.g., password/PIN);
+      (ii) something a user has (e.g., cryptographic identification device,
+      token); or
+      (iii) something a user is (e.g., biometric). A PIV or PKI Hardware Token
+      meets this definition.
+      A privileged account is defined as an information system account with
+      authorizations of a privileged user.  These accounts would be capable of
+      accessing the web management interface.
+      When accessing the application server via a network connection,
+      administrative access to the application server must be PKI Hardware Token
+      enabled or a CMS-approved soft certificate.'
+  end
+  
   control 'V-62281' do
     desc 'Configure the application server so required users are individually authenticated by creating 
          individual user accounts. Utilize an LDAP server that is configured according to CMS policy.'
   end
 
+  control 'V-62285' do
+    title 'Wildfly management Interfaces must be integrated with a centralized authentication mechanism 
+          that is configured to manage accounts according to CMS policy.'
+    desc 'Wildfly management Interfaces must be integrated with a centralized authentication mechanism 
+    that is configured to manage accounts according to CMS policy.'
+  end
+  
   control 'V-62343' do
     title 'The Wildlfy server must be configured to use CMS-approved PKI Class 3 or Class 4 certificates.'
     desc 'Class 3 PKI certificates are used for servers and software signing rather than for identifying 
@@ -71,7 +106,12 @@ include_controls 'cis-docker-ce-profile' do
     tag "nist": ['AC-3', 'Rev_4']
   end
 
+  control 'V-62309' do
+    tag "nist": ['AU-4', 'Rev_4']
+  end
+  
   control 'V-62317' do
+    tag "nist": ['SC-23', 'Rev_4']
     title 'Wildfly must be configured to use CMS PKI-established certificate authorities for verification 
           of the establishment of protected sessions.'
     desc 'Untrusted Certificate Authorities (CA) can issue certificates, but they may be issued by organizations 
@@ -92,26 +132,14 @@ include_controls 'cis-docker-ce-profile' do
          Verify that the Certificate Authority (CA) for each certificate is CMS-approved.
 
          If any certificates have a CA that are not CMS-approved, this is a finding.'
-    desc 'Locate the cacerts file for the JVM.  This can be done using the appropriate find command for the 
+    desc 'fix', 'Locate the cacerts file for the JVM.  This can be done using the appropriate find command for the 
          OS and change to the directory where the cacerts file is located.
 
          Remove the certificates that have a CA that is non-CMS approved, and import CMS CA-approved certificates.'
   end
 
-  control '' do
-    tag "nist": ['AC-3', 'Rev_4']
-  end
-
-  control 'M-5.1' do
-    tag "nist": ['AC-3', 'Rev_4']
-  end
-
-  control 'M-1.3' do
-
-  end
-  
-  control 'M-3.4' do
-    tag "nist": ['AC-3', 'Rev_4']
+  control 'V-62345' do
+    tag "nist": ['AU-4', 'Rev_4']
   end
 end
 
