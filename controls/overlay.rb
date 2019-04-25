@@ -8,7 +8,7 @@ include_controls 'cis-docker-ce-profile' do
   control 'V-62215' do
     desc 'fix', 'Follow procedure "4.4.  Configure the Wildfly Web Server to use HTTPS."  The 
          detailed procedure is found in the Wildfly Security Guide available at the vendor\'s 
-         site, RedHat.com.  An overview of steps is provided here.
+         site, RedHat.com.  An overview of steps is provided here. 
 
          1. Obtain or generate CMSDoD-approved SSL certificates.
          2. Configure the SSL certificate using your certificate values.
