@@ -1,5 +1,5 @@
-# cms-ars-3.1-moderate-wildfly-stig-overlay
-InSpec profile overlay to validate the secure configuration of Wildfly against [DISA's](https://iase.disa.mil/stigs/Pages/index.aspx) Red Hat JBoss Enterprise Application Platform (EAP) 6.3 STIG Version 1 Release 3 tailored for [CMS ARS 3.1](https://www.cms.gov/Research-Statistics-Data-and-Systems/CMS-Information-Technology/InformationSecurity/Info-Security-Library-Items/ARS-31-Publication.html) for CMS systems categorized as Moderate.
+# cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay
+InSpec profile overlay to validate the secure configuration of Red Hat JBoss EAP 6.3 against [DISA's](https://iase.disa.mil/stigs/Pages/index.aspx) Red Hat JBoss Enterprise Application Platform (EAP) 6.3 STIG Version 1 Release 3 tailored for [CMS ARS 3.1](https://www.cms.gov/Research-Statistics-Data-and-Systems/CMS-Information-Technology/InformationSecurity/Info-Security-Library-Items/ARS-31-Publication.html) for CMS systems categorized as Moderate.
 
 ## Getting Started
 It is intended and recommended that InSpec run this profile from a __"runner"__ host (such as a DevOps orchestration server, an administrative management system, or a developer's workstation/laptop) against the target remotely over __SSH__.
