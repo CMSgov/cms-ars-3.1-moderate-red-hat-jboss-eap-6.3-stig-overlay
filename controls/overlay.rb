@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-include_controls 'cis-docker-ce-profile' do
+include_controls 'red-hat-jboss-eap-6.3-stig-baseline' do
   control 'V-62345' do
     #tag "nist": ['AC-4', 'Rev_4']
   end

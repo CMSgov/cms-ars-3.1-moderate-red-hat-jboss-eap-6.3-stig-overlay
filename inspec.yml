@@ -8,8 +8,8 @@ summary: .
 version: 0.1.0
 
 depends:
-- name: wildfly-stig-baseline
-  git: https://github.com/mitre/wildfly-stig-baseline
+- name: red-hat-jboss-eap-6.3-stig-baseline
+  git: https://github.com/mitre/red-hat-jboss-eap-6.3-stig-baseline
   branch: master
 
 attributes:
@@ -21,31 +21,22 @@ attributes:
 - name: auditor_role_users
   description: 'List of authorized users with the auditor role.'
   type: array
-  default: %w[
-            user-auditor
-            ]
+  default: [ 'user-auditor']
            
 - name: administrator_role_users
   description: 'List of authorized users with the administrator role.'
   type: array
-  default: %w[
-            user-admin
-            ]
+  default: [ 'user-admin']
            
 - name: superuser_role_users
   description: 'List of authorized users with the SuperUser role.'
   type: array
-  default: %w[
-            user-superuser 
-            user-$local
-            ]
+  default: ['user-superuser', 'user-$local']
               
 - name: auditor_group_users
   description: 'List of  authorized auditor users.'
   type: array
-  default: %w[
-            user-auditor
-            ]
+  default: [ 'user-auditor']
            
 - name: wildfly_group
   description: 'group owner of files/directories'
@@ -60,23 +51,19 @@ attributes:
 - name: approved_applications
   description: 'List of  authorized applications.'
   type: array
-  default: %w[
-            sample.war
-            ]
+  default: [ 'sample.war']
 
 - name: auditor_group_users
   description: 'List of authorized users.'
   type: array
-  default: %w[                                                                                                                           
-            jboss.management.http.port=9990                                                                                              
-            jboss.management.https.port=9993                                                                                             
-            jboss.http.port=8080                                                                                                         
-            jboss.https.port=8443                                                                                                        
-            jboss.ajp.port=8009                                                                                                                                                                                                                                      
-            ]
+  default: [ 'jboss.management.http.port=9990',                                                                                              
+            'jboss.management.https.port=9993',                                                                                             
+            'jboss.http.port=8080',                                                                                                      
+            'jboss.https.port=8443',                                                                                                        
+            'jboss.ajp.port=8009' ]
            
 - name: auditor_role_users
-  description: 'List of authorized users with the auditor role.',
+  description: 'List of authorized users with the auditor role.'
   type: array
   default: [
            "user-auditor"
@@ -97,40 +84,40 @@ attributes:
            "user-superuser"
            ]
 
--name: deployer_role_users
+- name: deployer_role_users
   description: 'List of authorized users with the deployer role.'
   type: array
   default: [
            "user-deployer"
            ]
            
--name: maintainer_role_users
+- name: maintainer_role_users
   description: 'List of authorized users with the maintainer role.'
   type: array
   default: [
            "user-maintainer"
            ]
 
--name: monitor_role_users
+- name: monitor_role_users
   description: 'List of authorized users with the monitor role.'
   type: array
   default: [
            "user-monitor"
            ]
   
--name: operator_role_users
+- name: operator_role_users
   description: 'List of authorized users with the operator role.'
   type: array
   default: [
            "user-operator"
            ]
 
--name: ldap
+- name: ldap
   description: 'Set to true if ldap is being used.'
   type: string
   default: ''
 
--name: high_availability
+- name: high_availability
   description: 'Set to true if widlfy is being used as a high-availability cluster.'
   type: string
   default: ''
