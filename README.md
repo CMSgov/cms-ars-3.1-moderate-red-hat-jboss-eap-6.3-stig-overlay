@@ -91,7 +91,7 @@ When the __"runner"__ host uses this profile overlay for the first time, follow 
 ```
 mkdir profiles
 cd profiles
-git clone https://github.cms.gov/ispg-dev/cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay.git
+git clone https://github.cms.gov/ispg/cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay.git
 git clone https://github.com/mitre/red-hat-jboss-eap-6.3-stig-baseline.git
 cd cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay
 bundle install
@@ -118,7 +118,7 @@ The JSON results output file can be loaded into __[heimdall-lite](https://mitre.
 The JSON InSpec results file may also be loaded into a __[full heimdall server](https://github.com/mitre/heimdall)__, allowing for additional functionality such as to store and compare multiple profile runs.
 
 ## Getting Help
-To report a bug or feature request, please open an [issue](https://github.cms.gov/ispg/cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay/issues/new).
+To report a bug or feature request, please open an [issue](https://github.cms.gov/ispg/cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay/issues/new).
 
 ## Authors
 * Eugene Aronne
