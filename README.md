@@ -11,30 +11,78 @@ The latest versions and installation options are available at the [InSpec](http:
 The following attributes must be configured in an attributes file for the profile to run correctly. More information about InSpec attributes can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
 
 ```
-TODO
-# Base URL of the RSA Archer application
-url: 'https://urltoarcherapp.org/'
+# description: 'Command used to connect to the wildfly instance'
+connection: ''
+  
+# description: 'List of authorized users with the auditor role.'
+auditor_role_users: [ 'user-auditor']
+           
+# description: 'List of authorized users with the administrator role.'
+administrator_role_users: [ 'user-admin']
+  
+# description: 'List of authorized users with the SuperUser role.'
+superuser_role_users: ['user-superuser', 'user-$local']
+  
+# description: 'List of  authorized auditor users.'  
+auditor_group_users: [ 'user-auditor']
+           
+# description: 'group owner of files/directories'
+wildfly_group: 'wildfly'
+           
+# description: 'user owner of files/directories'
+wildly_owner: 'wildfly'
+  
+# description: 'List of  authorized applications.'
+approved_applications: [ 'sample.war']
 
-# Name of the RSA Archer instance
-instancename: 'archerapp'
+# description: 'List of authorized users.'
+auditor_group_users: [ 'jboss.management.http.port=9990',                                                                                              
+            'jboss.management.https.port=9993',                                                                                             
+            'jboss.http.port=8080',                                                                                                      
+            'jboss.https.port=8443',                                                                                                        
+            'jboss.ajp.port=8009' ]
+           
+# description: 'List of authorized users with the auditor role.'
+auditor_role_users: [
+           "user-auditor"
+           ]
 
-# RSA Archer user domain
-user_domain: ''
+# description: 'List of authorized users with the administrator role.'
+administrator_role_users: [
+           "user-admin"
+           ]
+           
+# description: 'List of authorized users with the SuperUser role.'
+superuser_role_users: [
+           "user-$local",
+           "user-superuser"
+           ]
 
-# REST API user with at least 'read-only' access ot 'access control' attributes on RSA Archer
-username: 'restapiuser'
+# description: 'List of authorized users with the deployer role.'
+deployer_role_users: [
+           "user-deployer"
+           ]
+           
+# description: 'List of authorized users with the maintainer role.'
+maintainer_role_users: [
+           "user-maintainer"
+           ]
 
-# Password of the user is pulled from the environment variable
-password: <%=ENV['ARCHER_API_PASSWORD']%>
+# description: 'List of authorized users with the monitor role.'
+monitor_role_users: [
+           "user-monitor"
+           ]
+           
+# description: 'List of authorized users with the operator role.'  
+operator_role_users: [
+           "user-operator"
+           ]
 
-# Set to 'false' if the RSA Archer application uses self-signed certificates
-ssl_verify: true`
-```
+# description: 'Set to true if ldap is being used.'
+ldap: ''
 
-The ```ARCHER_API_PASSWORD``` environment variable must also be set using the following command so InSpec can access the RSA Archer application through the API.
-
-```
-export ARCHER_API_PASSWORD=s3cr3tpassw0rd
+# description: 'Set to true if widlfy is being used as a high-availability cluster.'
+high_availability: ''
 ```
 
 ## Running This Overlay
@@ -43,24 +91,24 @@ When the __"runner"__ host uses this profile overlay for the first time, follow 
 ```
 mkdir profiles
 cd profiles
-git clone https://github.cms.gov/ispg/cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay.git
-git clone https://github.com/mitre/rsa-archer-6-security-configuration-guide-baseline.git
-cd cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay
+git clone https://github.cms.gov/ispg-dev/cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay.git
+git clone https://github.com/mitre/red-hat-jboss-eap-6.3-stig-baseline.git
+cd cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay
 bundle install
 cd ..
-inspec exec cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
+inspec exec cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
 ```
 
 For every successive run, follow these steps to always have the latest version of this overlay and dependent profiles:
 
 ```
-cd profiles/rsa-archer-6-security-configuration-guide-baseline
+cd profiles/red-hat-jboss-eap-6.3-stig-baseline
 git pull
-cd ../cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay
+cd ../cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay
 git pull
 bundle install
 cd ..
-inspec exec cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay --target=winrm://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
+inspec exec cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay --target=ssh://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
 ```
 
 ## Viewing the JSON Results
