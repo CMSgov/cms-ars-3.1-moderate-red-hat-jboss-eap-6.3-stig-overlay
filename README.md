@@ -11,78 +11,59 @@ The latest versions and installation options are available at the [InSpec](http:
 The following attributes must be configured in an attributes file for the profile to run correctly. More information about InSpec attributes can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
 
 ```
-# description: 'Command used to connect to the wildfly instance'
+# description: Command used to connect to the wildfly instance (e.g., ).
 connection: ''
   
-# description: 'List of authorized users with the auditor role.'
-auditor_role_users: [ 'user-auditor']
+# description: List of authorized users with the auditor role (e.g., ['user-auditor']).
+auditor_role_users: []
            
-# description: 'List of authorized users with the administrator role.'
-administrator_role_users: [ 'user-admin']
+# description: List of authorized users with the administrator role (e.g., ['user-admin']).
+administrator_role_users: []
   
-# description: 'List of authorized users with the SuperUser role.'
-superuser_role_users: ['user-superuser', 'user-$local']
+# description: List of authorized users with the SuperUser role (e.g., ['user-superuser', 'user-$local']).
+superuser_role_users: []
   
-# description: 'List of  authorized auditor users.'  
-auditor_group_users: [ 'user-auditor']
+# description: List of authorized auditor users (e.g., ['user-auditor']).  
+auditor_group_users: []
            
-# description: 'group owner of files/directories'
-wildfly_group: 'wildfly'
+# description: Group owner of files/directories (e.g., 'wildfly').
+wildfly_group: ''
            
-# description: 'user owner of files/directories'
-wildly_owner: 'wildfly'
+# description: User owner of files/directories (e.g., 'wildfly').
+wildly_owner: ''
   
-# description: 'List of  authorized applications.'
-approved_applications: [ 'sample.war']
+# description: List of authorized applications (e.g., ['sample.war']).
+approved_applications: []
 
-# description: 'List of authorized users.'
-auditor_group_users: [ 'jboss.management.http.port=9990',                                                                                              
-            'jboss.management.https.port=9993',                                                                                             
-            'jboss.http.port=8080',                                                                                                      
-            'jboss.https.port=8443',                                                                                                        
-            'jboss.ajp.port=8009' ]
+# description: List of authorized users (e.g., ['jboss.management.http.port=9990', 'jboss.management.https.port=9993', 'jboss.http.port=8080', 'jboss.https.port=8443', 'jboss.ajp.port=8009']).
+auditor_group_users: []
            
-# description: 'List of authorized users with the auditor role.'
-auditor_role_users: [
-           "user-auditor"
-           ]
+# description: List of authorized users with the auditor role (e.g., ['user-auditor']).
+auditor_role_users: []
 
-# description: 'List of authorized users with the administrator role.'
-administrator_role_users: [
-           "user-admin"
-           ]
+# description: List of authorized users with the administrator role (e.g., ['user-admin']).
+administrator_role_users: []
            
-# description: 'List of authorized users with the SuperUser role.'
-superuser_role_users: [
-           "user-$local",
-           "user-superuser"
-           ]
+# description: List of authorized users with the SuperUser role (e.g., ['user-$local', 'user-superuser']).
+superuser_role_users: []
 
-# description: 'List of authorized users with the deployer role.'
-deployer_role_users: [
-           "user-deployer"
-           ]
+# description: List of authorized users with the deployer role (e.g., ['user-deployer']).
+deployer_role_users: []
            
-# description: 'List of authorized users with the maintainer role.'
-maintainer_role_users: [
-           "user-maintainer"
-           ]
+# description: List of authorized users with the maintainer role (e.g., ['user-maintainer']).
+maintainer_role_users: []
 
-# description: 'List of authorized users with the monitor role.'
-monitor_role_users: [
-           "user-monitor"
-           ]
+# description: List of authorized users with the monitor role (e.g., ['user-monitor']).
+monitor_role_users: []
            
-# description: 'List of authorized users with the operator role.'  
-operator_role_users: [
-           "user-operator"
-           ]
+# description: 'List of authorized users with the operator role (e.g., [user-operator]).'  
+operator_role_users: []
 
 # description: 'Set to true if ldap is being used.'
-ldap: ''
+ldap: false
 
 # description: 'Set to true if widlfy is being used as a high-availability cluster.'
-high_availability: ''
+high_availability: false
 ```
 
 ## Running This Overlay
@@ -96,7 +77,7 @@ git clone https://github.com/mitre/red-hat-jboss-eap-6.3-stig-baseline.git
 cd cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay
 bundle install
 cd ..
-inspec exec cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml> --target=ssh://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
+inspec exec cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
 ```
 
 For every successive run, follow these steps to always have the latest version of this overlay and dependent profiles:
@@ -108,7 +89,7 @@ cd ../cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay
 git pull
 bundle install
 cd ..
-inspec exec cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml> --target=ssh://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
+inspec exec cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
 ```
 
 ## Viewing the JSON Results
@@ -118,7 +99,7 @@ The JSON results output file can be loaded into __[heimdall-lite](https://mitre.
 The JSON InSpec results file may also be loaded into a __[full heimdall server](https://github.com/mitre/heimdall)__, allowing for additional functionality such as to store and compare multiple profile runs.
 
 ## Getting Help
-To report a bug or feature request, please open an [issue](https://github.cms.gov/ispg/cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay/issues/new).
+To report a bug or feature request, please open an [issue](https://github.cms.gov/ISPG/cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay/issues/new).
 
 ## Authors
 * Eugene Aronne
