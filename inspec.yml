@@ -19,105 +19,86 @@ attributes:
   default: ''
   
 - name: auditor_role_users
-  description: 'List of authorized users with the auditor role.'
+  description: 'List of authorized users with the auditor role (e.g., [''user-auditor'']).'
   type: array
-  default: [ 'user-auditor']
+  default: []
            
 - name: administrator_role_users
-  description: 'List of authorized users with the administrator role.'
+  description: 'List of authorized users with the administrator role (e.g., [''user-admin'']).'
   type: array
-  default: [ 'user-admin']
+  default: []
            
 - name: superuser_role_users
-  description: 'List of authorized users with the SuperUser role.'
+  description: 'List of authorized users with the SuperUser role (e.g., [''user-superuser'', ''user-$local'']).'
   type: array
-  default: ['user-superuser', 'user-$local']
+  default: []
               
 - name: auditor_group_users
-  description: 'List of  authorized auditor users.'
+  description: 'List of  authorized auditor users (e.g., [''user-auditor'']).'
   type: array
-  default: [ 'user-auditor']
+  default: []
            
 - name: wildfly_group
-  description: 'group owner of files/directories'
+  description: 'group owner of files/directories (e.g., 'wildfly').'
   type: string
-  default: 'wildfly'
+  default: ''
            
 - name: wildly_owner
-  description: 'user owner of files/directories'
+  description: 'user owner of files/directories (e.g., 'wildfly').'
   type: string
-  default: 'wildfly'
+  default: ''
   
 - name: approved_applications
-  description: 'List of  authorized applications.'
+  description: 'List of  authorized applications (e.g., ['sample.war']).'
   type: array
-  default: [ 'sample.war']
+  default: []
 
 - name: auditor_group_users
-  description: 'List of authorized users.'
+  description: 'List of authorized users (e.g., [''jboss.management.http.port=9990'',''jboss.management.https.port=9993'',''jboss.http.port=8080'',''jboss.https.port=8443'',''jboss.ajp.port=8009'']).'
   type: array
-  default: [ 'jboss.management.http.port=9990',                                                                                              
-            'jboss.management.https.port=9993',                                                                                             
-            'jboss.http.port=8080',                                                                                                      
-            'jboss.https.port=8443',                                                                                                        
-            'jboss.ajp.port=8009' ]
+  default: []
            
 - name: auditor_role_users
-  description: 'List of authorized users with the auditor role.'
+  description: 'List of authorized users with the auditor role (e.g., [''user-auditor'']).'
   type: array
-  default: [
-           "user-auditor"
-           ]
+  default: []
 
 - name: administrator_role_users
-  description: 'List of authorized users with the administrator role.'
+  description: 'List of authorized users with the administrator role (e.g., [''user-admin'']).'
   type: array
-  default: [
-           "user-admin"
-           ]
+  default: []
 
 - name: superuser_role_users
-  description: 'List of authorized users with the SuperUser role.'
+  description: 'List of authorized users with the SuperUser role (e.g., [''user-$local'', ''user-superuser'']).'
   type: array
-  default: [
-           "user-$local",
-           "user-superuser"
-           ]
+  default: []
 
 - name: deployer_role_users
-  description: 'List of authorized users with the deployer role.'
+  description: 'List of authorized users with the deployer role (e.g., [''user-deployer'']).'
   type: array
-  default: [
-           "user-deployer"
-           ]
+  default: []
            
 - name: maintainer_role_users
-  description: 'List of authorized users with the maintainer role.'
+  description: 'List of authorized users with the maintainer role (e.g., [''user-maintainer'']).'
   type: array
-  default: [
-           "user-maintainer"
-           ]
+  default: []
 
 - name: monitor_role_users
-  description: 'List of authorized users with the monitor role.'
+  description: 'List of authorized users with the monitor role (e.g., [''user-monitor'']).'
   type: array
-  default: [
-           "user-monitor"
-           ]
+  default: []
   
 - name: operator_role_users
-  description: 'List of authorized users with the operator role.'
+  description: 'List of authorized users with the operator role (e.g., [''user-operator'']).'
   type: array
-  default: [
-           "user-operator"
-           ]
+  default: []
 
 - name: ldap
-  description: 'Set to true if ldap is being used.'
-  type: string
-  default: ''
+  description: 'Set to true if ldap is being used'
+  type: boolean
+  default: false
 
 - name: high_availability
-  description: 'Set to true if widlfy is being used as a high-availability cluster.'
-  type: string
-  default: ''
+  description: 'Set to true if widlfy is being used as a high-availability cluster'
+  type: boolean
+  default: false
