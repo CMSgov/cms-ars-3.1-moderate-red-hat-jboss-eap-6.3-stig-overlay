@@ -39,17 +39,17 @@ attributes:
   default: []
            
 - name: wildfly_group
-  description: 'group owner of files/directories (e.g., 'wildfly').'
+  description: 'group owner of files/directories (e.g., ''wildfly'').'
   type: string
   default: ''
            
 - name: wildly_owner
-  description: 'user owner of files/directories (e.g., 'wildfly').'
+  description: 'user owner of files/directories (e.g., ''wildfly'').'
   type: string
   default: ''
   
 - name: approved_applications
-  description: 'List of  authorized applications (e.g., ['sample.war']).'
+  description: 'List of  authorized applications (e.g., [''sample.war'']).'
   type: array
   default: []
 
