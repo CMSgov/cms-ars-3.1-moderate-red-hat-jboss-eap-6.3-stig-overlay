@@ -9,8 +9,7 @@ version: 0.1.0
 
 depends:
 - name: red-hat-jboss-eap-6.3-stig-baseline
-  git: https://github.com/mitre/red-hat-jboss-eap-6.3-stig-baseline
-  branch: master
+  path: ../red-hat-jboss-eap-6.3-stig-baseline
 
 attributes:
 - name: connection
