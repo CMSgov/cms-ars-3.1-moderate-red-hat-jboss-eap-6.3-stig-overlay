@@ -2,102 +2,114 @@ name: cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay
 title: .
 maintainer: The CMS InSpec Dev Teams
 copyright: .
-copyright_email: 
+copyright_email:
 license: Apache-2.0
-summary: .
-version: 0.1.0
+summary: InSpec profile testing compliance with DISA STIG for JBOSS EAP Wildfly
+description: >
+  An InSpec profile verifying STIG compliance with JBOSS EAP STIG
+  http://iasecontent.disa.mil/stigs/zip/U_JBoss_EAP_6-3_V1R2_STIG.zip
+  with modifications for Wildfly
+version: 1.0.0
 
 depends:
-- name: red-hat-jboss-eap-6.3-stig-baseline
-  path: ../red-hat-jboss-eap-6.3-stig-baseline
+  - name: red-hat-jboss-eap-6.3-stig-baseline
+    path: ../red-hat-jboss-eap-6.3-stig-baseline
 
-attributes:
-- name: connection
-  description: 'Command used to connect to the wildfly instance'
-  type: string
-  default: ''
-  
-- name: auditor_role_users
-  description: 'List of authorized users with the auditor role (e.g., [''user-auditor'']).'
-  type: array
-  default: []
-           
-- name: administrator_role_users
-  description: 'List of authorized users with the administrator role (e.g., [''user-admin'']).'
-  type: array
-  default: []
-           
-- name: superuser_role_users
-  description: 'List of authorized users with the SuperUser role (e.g., [''user-superuser'', ''user-$local'']).'
-  type: array
-  default: []
-              
-- name: auditor_group_users
-  description: 'List of  authorized auditor users (e.g., [''user-auditor'']).'
-  type: array
-  default: []
-           
-- name: wildfly_group
-  description: 'group owner of files/directories (e.g., ''wildfly'').'
-  type: string
-  default: ''
-           
-- name: wildly_owner
-  description: 'user owner of files/directories (e.g., ''wildfly'').'
-  type: string
-  default: ''
-  
-- name: approved_applications
-  description: 'List of  authorized applications (e.g., [''sample.war'']).'
-  type: array
-  default: []
+inputs:
+  - name: disable_slow_controls
+    description: "Disables long running controls"
+    value: false
 
-- name: auditor_group_users
-  description: 'List of authorized users (e.g., [''jboss.management.http.port=9990'',''jboss.management.https.port=9993'',''jboss.http.port=8080'',''jboss.https.port=8443'',''jboss.ajp.port=8009'']).'
-  type: array
-  default: []
-           
-- name: auditor_role_users
-  description: 'List of authorized users with the auditor role (e.g., [''user-auditor'']).'
-  type: array
-  default: []
+  - name: jboss_process_name
+    description: "The process name for jboss"
+    type: string
+    value: "wildfly"
 
-- name: administrator_role_users
-  description: 'List of authorized users with the administrator role (e.g., [''user-admin'']).'
-  type: array
-  default: []
+  - name: connection
+    description: "Command used to connect to the wildfly instance"
+    type: string
+    value: "--connect"
 
-- name: superuser_role_users
-  description: 'List of authorized users with the SuperUser role (e.g., [''user-$local'', ''user-superuser'']).'
-  type: array
-  default: []
+  - name: jboss_home
+    description: "the path for $JBOSS_HOME"
+    type: string
+    value: "/opt/wildfly"
 
-- name: deployer_role_users
-  description: 'List of authorized users with the deployer role (e.g., [''user-deployer'']).'
-  type: array
-  default: []
-           
-- name: maintainer_role_users
-  description: 'List of authorized users with the maintainer role (e.g., [''user-maintainer'']).'
-  type: array
-  default: []
+  - name: auditor_role_users
+    description: "List of authorized users with the auditor role."
+    type: array
+    value:
+      - user-auditor
 
-- name: monitor_role_users
-  description: 'List of authorized users with the monitor role (e.g., [''user-monitor'']).'
-  type: array
-  default: []
-  
-- name: operator_role_users
-  description: 'List of authorized users with the operator role (e.g., [''user-operator'']).'
-  type: array
-  default: []
+  - name: administrator_role_users
+    description: "List of authorized users with the administrator role."
+    type: array
+    value:
+      - user-admin
 
-- name: ldap
-  description: 'Set to true if ldap is being used'
-  type: boolean
-  default: false
+  - name: superuser_role_users
+    description: "List of authorized users with the SuperUser role."
+    type: array
+    value:
+      - user-superuser
+      - user-$local
 
-- name: high_availability
-  description: 'Set to true if widlfy is being used as a high-availability cluster'
-  type: boolean
-  default: false
+  - name: wildfly_group
+    description: "group owner of files/directories"
+    type: string
+    value: "wildfly"
+
+  - name: wildly_owner
+    description: "user owner of files/directories"
+    type: string
+    value: "wildfly"
+
+  - name: approved_applications
+    description: "List of  authorized applications."
+    type: array
+    value:
+      -
+
+  - name: wildfly_ports
+    description: "List of  authorized nginx modules."
+    type: array
+    value:
+      - jboss.management.http.port=9990
+      - jboss.management.https.port=9993
+      - jboss.http.port=8080
+      - jboss.https.port=8443
+      - jboss.ajp.port=8009
+
+  - name: deployer_role_users
+    description: "List of authorized users with the deployer role."
+    type: array
+    value:
+      - user-deployer
+
+  - name: maintainer_role_users
+    description: "List of authorized users with the maintainer role."
+    type: array
+    value:
+      - user-maintainer
+
+  - name: monitor_role_users
+    description: "List of authorized users with the monitor role."
+    type: array
+    value:
+      - user-monitor
+
+  - name: operator_role_users
+    description: "List of authorized users with the operator role."
+    type: array
+    value:
+      - user-operator
+
+  - name: ldap
+    description: "Set to true if ldap is being used"
+    type: boolean
+    value: false
+
+  - name: high_availability
+    description: "Set to true if widlfy is being used as a high-availability cluster"
+    type: boolean
+    value: false

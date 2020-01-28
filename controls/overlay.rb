@@ -2,7 +2,7 @@
 
 include_controls 'red-hat-jboss-eap-6.3-stig-baseline' do
   control 'V-62345' do
-    #tag "nist": ['AC-4', 'Rev_4']
+    tag "nist": ['AC-4', 'Rev_4']
   end
 
   control 'V-62215' do
@@ -46,8 +46,8 @@ include_controls 'red-hat-jboss-eap-6.3-stig-baseline' do
     knowing both the username and password without the user knowing his account was
     compromised, multifactor authentication adds the requirement that the attacker
     must have something from the user, such as a token, or to biometrically be the
-    user.
-      Multifactor authentication is defined as: using two or more factors to
+    user. 
+    Multifactor authentication is defined as: using two or more factors to
       achieve authentication.
       Factors include:
       (i) something a user knows (e.g., password/PIN);
@@ -132,6 +132,7 @@ include_controls 'red-hat-jboss-eap-6.3-stig-baseline' do
          Verify that the Certificate Authority (CA) for each certificate is CMS-approved.
 
          If any certificates have a CA that are not CMS-approved, this is a finding.'
+         
     desc 'fix', 'Locate the cacerts file for the JVM.  This can be done using the appropriate find command for the 
          OS and change to the directory where the cacerts file is located.
 
