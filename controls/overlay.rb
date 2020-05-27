@@ -2,9 +2,10 @@
 
 include_controls 'red-hat-jboss-eap-6.3-stig-baseline' do
   control 'V-62345' do
-    tag "nist": ['AC-4', 'Rev_4']
+    impact 'none'
+    desc 'caveat', 'Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1'
   end
-
+  
   control 'V-62215' do
     desc 'fix', 'Follow procedure "4.4.  Configure the Wildfly Web Server to use HTTPS."  The 
          detailed procedure is found in the Wildfly Security Guide available at the vendor\'s 
@@ -34,7 +35,8 @@ include_controls 'red-hat-jboss-eap-6.3-stig-baseline' do
   end	  
 
   control 'V-62259' do
-    tag "nist": ['CM-5', 'Rev_4']
+    impact 'none'
+    desc 'caveat', 'Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1'
   end
 
   control 'V-62279' do
@@ -100,18 +102,14 @@ include_controls 'red-hat-jboss-eap-6.3-stig-baseline' do
     desc 'fix', 'Configure the application server to use CMS-approved Class 3 or Class 4 PKI certificates.'
   end
   
-  control 'V-62285' do
-    title 'Wildfly management Interfaces must be integrated with a centralized authentication mechanism 
-          that is configured to manage accounts according to CMS policy.'
-    tag "nist": ['AC-3', 'Rev_4']
-  end
-
   control 'V-62309' do
-    tag "nist": ['AU-4', 'Rev_4']
+    impact 'none'
+    desc 'caveat', 'Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1'
   end
   
   control 'V-62317' do
-    tag "nist": ['SC-23', 'Rev_4']
+    impact 'none'
+    desc 'caveat', 'Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1'
     title 'Wildfly must be configured to use CMS PKI-established certificate authorities for verification 
           of the establishment of protected sessions.'
     desc 'Untrusted Certificate Authorities (CA) can issue certificates, but they may be issued by organizations 
@@ -140,8 +138,10 @@ include_controls 'red-hat-jboss-eap-6.3-stig-baseline' do
   end
 
   control 'V-62345' do
-    tag "nist": ['AU-4', 'Rev_4']
+    impact 'none'
+    desc 'caveat', 'Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1'
   end
+
 end
 
 
