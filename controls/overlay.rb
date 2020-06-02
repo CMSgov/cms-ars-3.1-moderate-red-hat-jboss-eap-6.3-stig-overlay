@@ -7,7 +7,7 @@ include_controls 'red-hat-jboss-eap-6.3-stig-baseline' do
          detailed procedure is found in the Wildfly Security Guide available at the vendor\'s 
          site, RedHat.com.  An overview of steps is provided here. 
 
-         1. Obtain or generate CMSDoD-approved SSL certificates.
+         1. Obtain or generate CMS-approved SSL certificates.
          2. Configure the SSL certificate using your certificate values.
          3. Set the SSL protocol to TLS V1.1 or V1.2.'
   end 
