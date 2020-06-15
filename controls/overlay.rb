@@ -30,6 +30,11 @@ include_controls 'red-hat-jboss-eap-6.3-stig-baseline' do
          is not included in CMS ARS 3.1'
   end	  
 
+  control 'V-62257' do
+    impact 0.0
+    desc 'caveat', 'Not applicable for this CMS ARS 3.1 overlay, since the related security control is not applied to this system categorization in CMS ARS 3.1'
+  end
+
   control 'V-62259' do
     impact 0.0
     desc 'caveat', 'Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1'
