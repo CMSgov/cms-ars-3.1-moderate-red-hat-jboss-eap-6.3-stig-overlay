@@ -13,6 +13,7 @@ include_controls 'red-hat-jboss-eap-6.3-stig-baseline' do
   end 
 
   control 'V-62275' do
+    title 'JBoss application and management ports must be approved.'
     desc 'Some networking protocols may not meet organizational security requirements to protect 
          data and components.
 
