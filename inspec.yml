@@ -1,51 +1,59 @@
 name: cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay
-title: .
+title: cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay
 maintainer: The CMS InSpec Dev Teams
-copyright: .
+copyright: 
 copyright_email:
 license: Apache-2.0
-summary: InSpec profile testing compliance with DISA STIG for JBOSS EAP Wildfly
+summary: "CMS ARS 3.1 Moderate Overlay InSpec Validation Profile for Red Hat JBOSS EAP Wildfly STIG"
 description: >
   An InSpec profile verifying STIG compliance with JBOSS EAP STIG
   http://iasecontent.disa.mil/stigs/zip/U_JBoss_EAP_6-3_V1R2_STIG.zip
   with modifications for Wildfly
-version: 1.0.0
+version: 1.0.1
+inspec_version: ">= 4.0"
 
 depends:
   - name: red-hat-jboss-eap-6.3-stig-baseline
-    path: ../red-hat-jboss-eap-6.3-stig-baseline
+    url: https://github.com/mitre/red-hat-jboss-eap-6.3-stig-baseline/archive/master.tar.gz
 
 inputs:
   - name: disable_slow_controls
     description: "Disables long running controls"
     value: false
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: jboss_process_name
     description: "The process name for jboss"
     type: string
     value: "wildfly"
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: connection
     description: "Command used to connect to the wildfly instance"
     type: string
     value: "--connect"
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: jboss_home
     description: "the path for $JBOSS_HOME"
     type: string
     value: "/opt/wildfly"
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: auditor_role_users
     description: "List of authorized users with the auditor role."
     type: array
     value:
       - user-auditor
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: administrator_role_users
     description: "List of authorized users with the administrator role."
     type: array
     value:
       - user-admin
+    sensitive: true
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: superuser_role_users
     description: "List of authorized users with the SuperUser role."
@@ -53,22 +61,27 @@ inputs:
     value:
       - user-superuser
       - user-$local
+    sensitive: true
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: wildfly_group
     description: "group owner of files/directories"
     type: string
     value: "wildfly"
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: wildly_owner
     description: "user owner of files/directories"
     type: string
     value: "wildfly"
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: approved_applications
     description: "List of  authorized applications."
     type: array
     value:
       -
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: wildfly_ports
     description: "List of  authorized nginx modules."
@@ -79,37 +92,44 @@ inputs:
       - jboss.http.port=8080
       - jboss.https.port=8443
       - jboss.ajp.port=8009
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: deployer_role_users
     description: "List of authorized users with the deployer role."
     type: array
     value:
       - user-deployer
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: maintainer_role_users
     description: "List of authorized users with the maintainer role."
     type: array
     value:
       - user-maintainer
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: monitor_role_users
     description: "List of authorized users with the monitor role."
     type: array
     value:
       - user-monitor
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: operator_role_users
     description: "List of authorized users with the operator role."
     type: array
     value:
       - user-operator
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: ldap
     description: "Set to true if ldap is being used"
     type: boolean
     value: false
+    profile: red-hat-jboss-eap-6.3-stig-baseline
 
   - name: high_availability
     description: "Set to true if widlfy is being used as a high-availability cluster"
     type: boolean
     value: false
+    profile: red-hat-jboss-eap-6.3-stig-baseline
