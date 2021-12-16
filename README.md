@@ -1,8 +1,9 @@
 # cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay
 InSpec profile overlay to validate the secure configuration of Red Hat JBoss EAP 6.3 against [DISA's](https://iase.disa.mil/stigs/Pages/index.aspx) Red Hat JBoss Enterprise Application Platform (EAP) 6.3 STIG Version 1 Release 3 tailored for [CMS ARS 3.1](https://www.cms.gov/Research-Statistics-Data-and-Systems/CMS-Information-Technology/InformationSecurity/Info-Security-Library-Items/ARS-31-Publication.html) for CMS systems categorized as Moderate.
 
+## Container-Ready: Profile updated to adapt checks when the running against a containerized instance of MongoDB, based on reference container: (docker pull registry1.dso.mil/ironbank/opensource/jboss/wildfly:latest)
+
 ## Getting Started
-It is intended and recommended that InSpec run this profile from a __"runner"__ host (such as a DevOps orchestration server, an administrative management system, or a developer's workstation/laptop) against the target remotely over __SSH__.
 
 __For the best security of the runner, always install on the runner the _latest version_ of InSpec and supporting Ruby language components.__ 
 
@@ -89,9 +90,13 @@ $ /bin/sh /opt/wildfly/bin/jboss-cli.sh --connect
 ```
 ## Running This Overlay Directly from Github
 
+Against a _**locally-hosted**_ instance (i.e., InSpec installed on the target)
 ```
-# How to run
-inspec exec https://github.com/CMSgov/cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay/archive/master.tar.gz --input-file=<path_to_your_inputs_file/name_of_your_inputs_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
+inspec exec https://github.com/mitre/redhat-jboss-enterprise-application-platform-6.3-stig-baseline/archive/master.tar.gz --input-file=<path_to_your_inputs_file/name_of_your_inputs_file.yml> --reporter json:<path_to_your_output_file/name_of_your_output_file.json>
+```
+Against a _**docker-containerized**_ instance (i.e., InSpec installed on the node hosting the container):
+```bash
+inspec exec https://github.com/mitre/redhat-jboss-enterprise-application-platform-6.3-stig-baseline/archive/master.tar.gz -t docker://instance_id --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter json:<path_to_your_output_file/name_of_your_output_file.json> 
 ```
 
 Runs this profile over ssh to the host at IP address hostip as a privileged user account (i.e., an account with administrative privileges), reporting results to both the command line interface (cli) and to a machine-readable JSON file.
