@@ -1,7 +1,7 @@
 # cms-ars-3.1-moderate-red-hat-jboss-eap-6.3-stig-overlay
 InSpec profile overlay to validate the secure configuration of Red Hat JBoss EAP 6.3 against [DISA's](https://iase.disa.mil/stigs/Pages/index.aspx) Red Hat JBoss Enterprise Application Platform (EAP) 6.3 STIG Version 1 Release 3 tailored for [CMS ARS 3.1](https://www.cms.gov/Research-Statistics-Data-and-Systems/CMS-Information-Technology/InformationSecurity/Info-Security-Library-Items/ARS-31-Publication.html) for CMS systems categorized as Moderate.
 
-## Container-Ready: Profile updated to adapt checks when the running against a containerized instance of MongoDB, based on reference container: (docker pull registry1.dso.mil/ironbank/opensource/jboss/wildfly:latest)
+#### Container-Ready: Profile updated to adapt checks when the running against a containerized instance of Wildfly, based on reference container: (docker pull registry1.dso.mil/ironbank/opensource/jboss/wildfly:latest)
 
 ## Getting Started
 
